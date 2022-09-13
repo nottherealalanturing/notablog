@@ -1,24 +1,49 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## iBlog
 
-* Ruby version
+- A Fullstack ROR project
 
-* System dependencies
+## Build
 
-* Configuration
+- built with Ruby
+### Setup
 
-* Database creation
+- Clone the project
+```terminal
+git clone git@github.com:nottherealalanturing/iblog.git
+```
 
-* Database initialization
+- cd into the project directory
+```terminal
+cd iblog
+```
+## Author
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+👤 **Assad Isah**
 
-* Deployment instructions
+- Github: [nottherealalanturing](https://github.com/nottherealalanturing)
+- LinkedIn: [Assad Isah](https://linkedin.com/in/assadisah)
 
-* ...
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
