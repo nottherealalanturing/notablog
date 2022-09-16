@@ -1,33 +1,35 @@
 require 'rails_helper'
 
-RSpec.describe Like, type: :model do
+RSpec.describe Comment, type: :model do
   let(:user) {User.create(name: "Test User", bio: "Test Bio", photo: "Test Image Url")}
   let(:blog) {Post.create(author: user, title: "New Post", text: "Lorem Ipsum")}
   subject {described_class.new}
   
   describe "Validation" do
-    it "should not be valid without a user_id" do
+    it "should not be valid without a user_id or text" do
       subject.author = nil
       subject.post = blog
+      subject.text = nil
       expect(subject).to_not be_valid
     end
 
     it "should not be valid without a post_id" do
       subject.author = user
       subject.post = nil
+      subject.text = "Fake Comment"
       expect(subject).to_not be_valid
     end
 
     it "it should be valid" do
-      subject = described_class.create(author: user, post: blog)
+      subject = described_class.create(author: user, post: blog, text: "Fake Comment")
       expect(subject).to be_valid
     end
   end
 
-  describe "Add Like to post" do  
-    it "should add a new like to post" do 
-      subject = described_class.create(author: user, post: blog)
-      expect(subject.post.likes_counter).to eq(1)
+  describe "Add Comment to post" do  
+    it "should add a new comment to post" do 
+      subject = described_class.create(author: user, post: blog, text: "Fake Comment")
+      expect(subject.post.comments_counter).to eq(1)
     end
   end
 
@@ -36,4 +38,3 @@ RSpec.describe Like, type: :model do
     it {should belong_to(:post)}
   end
 end
-
