@@ -18,7 +18,9 @@ RSpec.describe User, type: :model do
       subject.posts_counter = "nil"
       expect(subject).to_not be_valid
     end
+  end
 
+  describe "Associations" do
     it {should have_many(:comments).with_foreign_key(:author_id).dependent(:destroy)}
     it {should have_many(:posts).with_foreign_key(:author_id).dependent(:destroy)}
     it {should have_many(:likes).with_foreign_key(:author_id).dependent(:destroy)}
