@@ -1,0 +1,26 @@
+<div class="user_page">
+    <div class="user_page_username">
+        <img class="user_page_image" src="<%= @user.photo %>" alt="<%= @user.name %>">
+        <div class="user_page_detail">
+            <p> <%= @user.name %> </p>
+            <p class="user_posts_count">Number of posts: <%= @user.posts_counter %></p>
+        </div>
+    </div>
+    <div class="user_page_bio">
+        <span class="bio_header">Bio</span>
+        <p class="user_bio"><%= @user.bio %> </p>
+    </div>
+    <div class="user_page_posts">
+        <% @user.most_recent_posts.each do |post| %>
+            <article class="user_page_post">
+                <span class="post_title"><%= post.title %></span>
+                <p class="post_text"> <%= post.text %> </p>
+                <div class="post_interractions">
+                    <p>Comments: <%=post.comments_counter %></p> 
+                    <p>, Likes: <%= post.likes_counter %></p>
+                </div>
+            </article>
+        <% end %>
+    </div>
+    <button class="see_all_posts_btn">See all posts</button>
+</div>
