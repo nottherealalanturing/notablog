@@ -1,3 +1,11 @@
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 //User#index
 
 .user_list {
@@ -14,8 +22,8 @@
 .user_item {
   display: flex;
   border: 1px solid #000;
-  width: 80%;
-  padding: 10px;
+  width: 100%;
+  padding: 30px;
 }
 
 .user_image {
@@ -45,6 +53,7 @@
   display: grid;
   grid-template-rows: 1fr 1fr auto;
   gap: 10px;
+  padding: 15px;
 }
 
 .user_page_bio {
@@ -76,7 +85,7 @@
   justify-content: space-between;
   width: 100%;
   border: 1px solid #000;
-  padding: 10px;
+  padding: 30px;
 }
 
 .user_page_posts {
@@ -105,6 +114,92 @@
 .post_interractions {
   align-self: flex-end;
   display: flex;
+}
+
+.see_all_posts_btn {
+  width: fit-content;
+  align-self: center;
+  justify-self: center;
+}
+
+//post#show
+
+.post_page {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 10px;
+  padding: 15px;
+}
+
+.post_page_bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 1px solid #000;
+}
+
+.post_bio {
+  padding: 10px;
+  gap: 10px;
+}
+
+.post_page_username {
+  display: flex;
+  gap: 20px;
+  margin: 10px;
+}
+
+.post_page_image {
+  width: 100px;
+  border: 1px solid #000;
+}
+
+.post_page_detail {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #000;
+  padding: 30px;
+}
+
+.post_page_posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post_page_post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid #000;
+  padding: 5px;
+}
+
+.post_post_title {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.post_post_text {
+  font-size: 16px;
+}
+
+.post_post_interractions {
+  align-self: flex-end;
+  display: flex;
+}
+
+.post_page_comments {
+  text-decoration: none;
+  list-style: none;
+  padding: 15px;
+}
+
+.post_page_comment {
+  text-decoration: none;
+  list-style: none;
 }
 
 .see_all_posts_btn {

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-    
-end
+    def index
+    end   
 
-index new create show edit update destroy
+    def show
+    end
+end
