@@ -1,2 +1,15 @@
-<h1>Posts</h1>
-<p>Here is a list of posts for a given user</p>
+<div class="post_page">
+    <div class="post_page_username">
+        <img class="post_page_image" src="<%= @user.photo %>" alt="<%= @user.name %>">
+        <div class="post_page_detail">
+            <p> <%= @user.name %> </p>
+            <p class="post_posts_count">Number of posts: <%= @user.posts_counter %></p>
+        </div>
+    </div>
+    <div class="post_page_posts">
+        <% @posts.each do |post| %>
+            <%= render partial: "post_article", locals: {post: post} %>
+        <% end %>
+    </div>
+    <button class="see_all_posts_btn">Pagination</button>
+</div>
