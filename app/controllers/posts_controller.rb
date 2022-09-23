@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def show
     @user = get_user_id params[:user_id]
     @post = @user.posts.includes(comments: [:author]).find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    puts params
     new_post = current_user.posts.new(post_params)
     if new_post.save
       redirect_to post_path(new_post.id)

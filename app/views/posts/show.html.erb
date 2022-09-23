@@ -4,14 +4,24 @@
         <div class="show_post_interractions">
             <p><%= pluralize(@post.comments_counter, "comment") %></p> 
             <p>, <%= pluralize(@post.likes_counter, "like") %></p>
+            <button>Like post</button>
         </div>
     </div>
     <p class="show_post_text">
         <%= @post.text %>
     </p>
 </article>
+
 <ul class="show_post_comments">
     <% @post.comments.each do |comment| %>
         <p><%= comment.author.name %> : <%= comment.text  %>  </p>
     <% end %>
 </ul>
+<div class="create_comment_container"> 
+    <%= form_with url: "/posts/#{@post.id}/comments", scope: @comment, method: :post do |comment_form| %>
+        <%= comment_form.text_area :text, class:"form-control", placeholder: "Type something
+        here...", rows: 6, required: true %>
+        <br />
+        <%= comment_form.submit "Comment" %>
+    <% end %>
+</div>
