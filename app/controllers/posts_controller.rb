@@ -14,13 +14,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    new_post = Post.new(author: current_user, text: params[:post][:text], title: params[:post][:title]);
-    puts new_post.text
-    puts new_post.title
-    puts new_post.author.name
-    puts new_post.valid?
+    new_post = current_user.posts.new(post_params)
     if new_post.save
       redirect_to post_path(new_post.id)
+      flash[:success] = "New post added succesfully."
+    else
+      render "new"
+      flash[:error] = "Error adding a post."
     end
   end
 
@@ -31,6 +31,10 @@ class PostsController < ApplicationController
       else
         current_user
       end
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :text)
     end
   
 end
