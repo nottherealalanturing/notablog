@@ -16,4 +16,8 @@ class Post < ApplicationRecord
   def five_most_recent_comments
     comments.order(created_at: :desc).limit(5)
   end
+
+  def liked?(author)
+    !!self.likes.find{|like| like.author_id == author.id}
+  end
 end

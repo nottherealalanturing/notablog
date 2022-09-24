@@ -1,8 +1,5 @@
 class CommentsController < ApplicationController
 
-  def new
-    @comment = Comment.new
-  end
 
   def create
     post = Post.find(params[:post_id])
@@ -10,7 +7,7 @@ class CommentsController < ApplicationController
 
     if new_comment.valid?
       new_comment.save
-      redirect_to post_path(post)
+      redirect_to user_post_path(post.author, post)
     else
       flash[:error] = "Error creating comments"
     end

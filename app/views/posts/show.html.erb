@@ -4,7 +4,13 @@
         <div class="show_post_interractions">
             <p><%= pluralize(@post.comments_counter, "comment") %></p> 
             <p>, <%= pluralize(@post.likes_counter, "like") %></p>
-            <button>Like post</button>
+           
+            <% if @post.liked?(@current_user) %>
+                <%= button_to "Like", "/posts/#{@post.id}/like", method: "put", disabled: true %>
+            <% else %>
+                <%= button_to "Like", "/posts/#{@post.id}", method: "put" %>
+            <% end %>
+
         </div>
     </div>
     <p class="show_post_text">
