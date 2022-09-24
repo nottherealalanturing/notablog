@@ -220,6 +220,9 @@
 
 .show_post_interractions {
   display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .show_post_text {
@@ -232,4 +235,28 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
+}
+
+.create_comment_container {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  gap: 10px;
+}
+
+.comment-control {
+  padding: 5px;
+}
+
+//post#new
+
+.create_post_container {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  gap: 10px;
 }

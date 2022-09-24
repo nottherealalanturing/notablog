@@ -1,0 +1,7 @@
+<%= form_with model: @post, class: "create_post_container" do |form| %>
+    <%= form.label :title, "Post Title:"%>
+    <%=  form.text_field :title, placeholder: "Enter post title"  %>
+    <%=  form.label :text, "Post Text:" %>
+    <%=  form.text_area :text, placeholder: "Enter post body", rows: 6, required: true %>
+    <%=  form.submit %>
+<% end %>
