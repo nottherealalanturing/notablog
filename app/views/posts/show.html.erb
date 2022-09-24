@@ -4,7 +4,6 @@
         <div class="show_post_interractions">
             <p><%= pluralize(@post.comments_counter, "comment") %></p> 
             <p>, <%= pluralize(@post.likes_counter, "like") %></p>
-           
             <% if @post.liked?(@current_user) %>
                 <%= button_to "Like", "/posts/#{@post.id}/like", method: "put", disabled: true %>
             <% else %>
@@ -23,10 +22,9 @@
         <p><%= comment.author.name %> : <%= comment.text  %>  </p>
     <% end %>
 </ul>
-<div class="create_comment_container"> 
-    <%= form_with url: "/posts/#{@post.id}/comments", scope: @comment, method: :post do |comment_form| %>
-        <%= comment_form.text_area :text, class:"form-control", placeholder: "Type something
-        here...", rows: 6, required: true %>
+<div> 
+    <%= form_with url: "/posts/#{@post.id}/comments", class:"create_comment_container", scope: @comment, method: :post do |comment_form| %>
+        <%= comment_form.text_area :text, class:"comment-control", placeholder: "Enter your comments", rows: 6, required: true %>
         <br />
         <%= comment_form.submit "Comment" %>
     <% end %>

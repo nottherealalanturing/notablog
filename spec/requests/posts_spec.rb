@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
-    before(:each) { get user_posts_path user_id: 1 }
+    before(:each) { get user_posts_path user_id: 1}
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
@@ -12,8 +12,9 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it "should include 'Here is a list of posts for a given user'" do
+    it "should include ''" do
       expect(response.body).to include('Here is a list of posts for a given user')
+      puts response.body
     end
   end
 
