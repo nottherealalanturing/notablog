@@ -19,40 +19,38 @@ class PostsController < ApplicationController
     new_post = current_user.posts.new(post_params)
     if new_post.save
       redirect_to user_post_path(new_post.author, new_post)
-      flash[:success] = "New post added succesfully."
+      flash[:success] = 'New post added succesfully.'
     else
-      render "new"
-      flash[:error] = "Error adding a post."
+      render 'new'
+      flash[:error] = 'Error adding a post.'
     end
   end
 
   def update
     post = Post.find(params[:id])
-    new_like = Like.new(author: current_user, post: post)
+    new_like = Like.new(author: current_user, post:)
     if new_like.valid?
       new_like.save
       redirect_to user_post_path(post.author, post)
     else
       redirect_to user_post_path(post.author, post)
-      flash[:error] = "Error liking post."
+      flash[:error] = 'Error liking post.'
     end
   end
 
   private
-    def get_user_id(user_id)
-      if user_id
-        User.find(params[:user_id])
-      else
-        current_user
-      end
-    end
 
-    def post_params
-      params.require(:post).permit(:title, :text)
+  def get_user_id(user_id)
+    if user_id
+      User.find(params[:user_id])
+    else
+      current_user
     end
+  end
 
-   
-  
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
 
-#https://gorails.com/episodes/how-to-create-an-active-storage-previewer?autoplay=1
+# https://gorails.com/episodes/how-to-create-an-active-storage-previewer?autoplay=1
