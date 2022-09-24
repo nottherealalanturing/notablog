@@ -1,0 +1,39 @@
+<%= form_with url: "/search", method: :get do |dorm| %>
+    <%= dorm.label :query, "Search for:" %>
+    <%= dorm.text_field :query %>
+    <%= dorm.check_box :pet_dog %>
+    <%= dorm.label :pet_dog, "I own a dog" %>
+
+    <%= dorm.radio_button :age, "child" %>
+    <%= dorm.label :age_child, "child" %>
+    <%= dorm.radio_button :age, "adult" %>
+    <%= dorm.label :age_adult, "adult" %> 
+
+    <%= %>
+    <%= %>
+
+    <%= dorm.submit "Search" %>
+<% end %>
+
+<div>Form two </div>
+
+<%= form_with model: @test_user do |form| %>
+    <%= form.text_field :name %>
+    <%= form.select :city, [["Berlin", "BE"], ["Chicago", "CHI"], ["Madrid", "MD"]] %>
+
+    <%= form.select :city,
+      {
+        "Europe" => [ ["Berlin", "BE"], ["Madrid", "MD"] ],
+        "North America" => [ ["Chicago", "CHI"] ],
+      },
+      selected: "CHI" %>
+
+      <%= form.time_zone_select :time_zone %>
+      <%= form.date_select :birth_date %>
+
+      <%= form.collection_select :aut, User.all, :id, :name %>
+
+
+    <%= form.submit %>
+<% end %>
+  

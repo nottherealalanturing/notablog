@@ -12,8 +12,9 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it "should include 'Here is a list of posts for a given user'" do
+    it "should include ''" do
       expect(response.body).to include('Here is a list of posts for a given user')
+      puts response.body
     end
   end
 
