@@ -13,5 +13,5 @@
     <div class="user_page_posts">
         <%= render partial: "posts" %>
     </div>
-    <button class="see_all_posts_btn">See all posts</button>
+    <a class="see_all_posts_btn" href="<%= user_path(@user) %>">See all posts</a>
 </div>
