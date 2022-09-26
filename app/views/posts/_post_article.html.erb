@@ -1,11 +1,11 @@
-    <article class="post_page_post">
+    <a class="post_page_post" href="/users/<%= @user.id %>/posts/<%= post.id %>">
         <span class="post_post_title"><%= post.title %></span>
         <p class="post_post_text"> <%= post.text %> </p>
         <div class="post_post_interractions">
         <p><%= pluralize(post.comments_counter, "comment") %></p> 
         <p>, <%= pluralize(post.likes_counter, "like") %></p>
     </div>
-    </article>
+    </a>
     <ul class="post_page_comments">
         <% post.five_most_recent_comments.each do |comment| %>
             <li class="post_page_comment"> <%= comment.author.name %> : <%= comment.text %> </li> 
