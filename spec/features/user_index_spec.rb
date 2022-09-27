@@ -14,8 +14,12 @@ RSpec.feature 'User Index Page', type: :feature do
         expect(page).to have_content('Lilly')
     end
 
-    it 'I can see the profile picture for each' do
+    it 'I can see the profile picture for each user' do
         expect(page.find(:css, '.user_page_image')[:src]).to have_content(@user.photo)
     end
 
+    it 'should display the number of posts each user has written.' do
+        expect(page).to have_content('Number of posts: 0')
+       
+    end
 end
