@@ -6,6 +6,9 @@ RSpec.feature 'User Index Page', type: :feature do
         @user2 = User.create(name: 'Tom',
                              photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', bio: 'Teacher from Poland.')
         @first_post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
+        @second_post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
+        @third_post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
+        @fourth_post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
     5.times do |_i|
       Comment.create(post: @first_post, author: @user2, text: 'Hi Lilly!')
     end                     
@@ -22,10 +25,16 @@ RSpec.feature 'User Index Page', type: :feature do
     end
 
     it "should show the number of posts the user has written." do
-        expect(page).to have_content('Number of posts: 1')
+        expect(page).to have_content('Number of posts: 4')
     end
 
     it "it should show user's bio" do
         expect(page).to have_content('Bio')
     end
+
+    it "should show user's first 3 posts." do
+        expect(page).to have_content('Hello')
+        expect(page).to have_content('Hello')
+        expect(page).to have_content('Hello')
+    end 
 end
