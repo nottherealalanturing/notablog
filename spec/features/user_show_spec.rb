@@ -41,4 +41,9 @@ RSpec.feature 'User Index Page', type: :feature do
     it "it should show  a button that lets me view all of a user's posts." do
         expect(page).to have_content 'See all posts'
     end
+
+    it " When I click a user's post, it redirects me to that post's show page." do
+        visit(user_posts_path(@user.id))
+        expect(page).to have_current_path user_posts_path(@user.id)
+    end
 end
