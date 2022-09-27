@@ -37,4 +37,8 @@ RSpec.feature 'User Index Page', type: :feature do
         expect(page).to have_content('Hello')
         expect(page).to have_content('Hello')
     end 
+
+    it "it should show  a button that lets me view all of a user's posts." do
+        expect(page).to have_content 'See all posts'
+    end
 end
