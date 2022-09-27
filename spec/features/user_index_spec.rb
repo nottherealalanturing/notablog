@@ -8,10 +8,14 @@ RSpec.feature 'User Index Page', type: :feature do
                              
 
          visit user_path(@user)
-         @user = User.first!
+    
     end
     it ' displays the username for all users' do
         expect(page).to have_content('Lilly')
+    end
+
+    it 'I can see the profile picture for each' do
+        expect(page.find(:css, '.user_page_image')[:src]).to have_content(@user.photo)
     end
 
 end
