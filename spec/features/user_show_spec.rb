@@ -8,9 +8,13 @@ RSpec.feature 'User Index Page', type: :feature do
                              
 
          visit user_path(@user.id)
-    
     end
+
     it "should  show user's profile picture" do
         expect(page.find(:css, '.user_page_image')[:src]).to have_content(@user.photo)
+    end
+
+    it "should show the user's username." do
+        expect(page).to have_content('Lilly')
     end
 end
