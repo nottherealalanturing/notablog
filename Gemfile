@@ -18,6 +18,7 @@ gem 'turbo-rails'
 # gem "bcrypt", "~> 3.1.7"
 
 gem 'devise'
+
 gem 'cancancan', '~> 3.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
