@@ -12,22 +12,11 @@
 
   <body>
   <header>
-    <div class="navbar">
-    <h1><a href="#home">Notablog</a></h1>
-    <a href="#news">Users</a>
-    <a href="#news">Posts</a>
-    <div class="dropdown">
-      <button class="dropbtn">
       <% if current_user %>
-        <%= current_user.name %>
+        <%=  render "layouts/navbar" %>
+      <% else %>
+      <%= render "layouts/unauth" %>
       <% end %>
-
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href=""New Post</a>
-        <a href="#">My Profile</a>
-        <a href="#">Logout</a>
       </div>
     </div>
   </div> 
