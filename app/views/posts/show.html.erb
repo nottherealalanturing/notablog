@@ -4,10 +4,15 @@
         <div class="show_post_interractions">
             <p><%= pluralize(@post.comments_counter, "comment") %></p> 
             <p>, <%= pluralize(@post.likes_counter, "like") %></p>
+           
             <% if @post.liked?(@current_user) %>
                 <%= button_to "Like", "/posts/#{@post.id}/like", method: "put", disabled: true %>
             <% else %>
                 <%= button_to "Like", "/posts/#{@post.id}", method: "put" %>
+            <% end %>
+
+            <% if can? :destroy, @post %>
+                <%= button_to 'Delete Post', user_post_path, method: :delete, data: {confirm: 'Are You Sure You Want to Delete This Post'} %>
             <% end %>
 
         </div>
@@ -21,6 +26,9 @@
     <% @post.comments.each do |comment| %>
         <p><%= comment.author.name %> : <%= comment.text  %>  </p>
     <% end %>
+
+    <% if can? :destroy, comment %>
+        <%= link_to "Destroy", post_comment_path(comment_id: comment.id,  post_id: @post.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 </ul>
 <div> 
     <%= form_with url: "/posts/#{@post.id}/comments", class:"create_comment_container", scope: @comment, method: :post do |comment_form| %>
