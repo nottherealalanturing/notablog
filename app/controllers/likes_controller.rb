@@ -3,9 +3,7 @@ class LikesController < ApplicationController
     puts params[:id]
     user = User.find(params[:user_id])
     post = Post.find(params[:id])
-    new_like = Comment.create(author: user, post:)
-    puts 'hello' if new_like
-    # redirect_to user_posts_path(2,1)
+    Comment.create(author: user, post:)
   end
 
   private
