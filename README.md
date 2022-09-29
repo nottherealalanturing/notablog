@@ -58,12 +58,18 @@ Then open a web page and go to [port 3001 on your local machine.](http://localho
 
 Follow vendor specific instructions to deploy the application.
 
-## Author
+## Authors
 
 👤 **Assad Isah**
 
 - Github: [nottherealalanturing](https://github.com/nottherealalanturing)
 - LinkedIn: [Assad Isah](https://linkedin.com/in/assadisah)
+
+
+👤 **Charlotte Divine**
+
+- GitHub: [divinecharlotte](https://github.com/divinecharlotte)
+- LinkedIn: [charlotte-divine](https://www.linkedin.com/in/charlotte-divine-dusenge/)
 
 ## 🤝 Contributing
 
